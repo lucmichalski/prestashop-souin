@@ -12,7 +12,7 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-define('VARNISH_BACKWARD_COMPATIBILITY', dirname(__FILE__) . '/classes/BackwardCompatibility.php');
+define('SOUIN_BACKWARD_COMPATIBILITY', dirname(__FILE__) . '/classes/BackwardCompatibility.php');
 
 class Souin extends Module
 {
@@ -24,7 +24,7 @@ class Souin extends Module
     public static function loadDependencies()
     {
         $dependencies = [
-            VARNISH_BACKWARD_COMPATIBILITY,
+            SOUIN_BACKWARD_COMPATIBILITY,
         ];
 
         foreach ($dependencies as $dependency) {
@@ -290,7 +290,7 @@ class Souin extends Module
             'enable_cache' => array(
                 'type' => 'switch',
                 'label' => $this->l('Enable Souin Cache'),
-                'name' => 'PS_VARNISH_STATUS',
+                'name' => 'PS_SOUIN_STATUS',
                 'desc' =>
                 $this->l(
                     'Enables Souin as a cache backend.'
@@ -311,7 +311,7 @@ class Souin extends Module
             'cache_namespace_filters' => array(
                 'type' => 'text',
                 'label' => $this->l('Cache namespace filters (separated by commas ",")'),
-                'name' => 'PS_VARNISH_NAMESPACE_FILTERS',
+                'name' => 'PS_SOUIN_NAMESPACE_FILTERS',
                 'class' => 'col-sm-120',
             ),
         );
@@ -333,7 +333,7 @@ class Souin extends Module
             'cache_index_page' => array(
                 'type' => 'switch',
                 'label' => $this->l('Cache Home Page'),
-                'name' => 'PS_VARNISH_CACHE_OBJECT_INDEX',
+                'name' => 'PS_SOUIN_CACHE_OBJECT_INDEX',
                 'values' => array(
                     array(
                         'id' => 'active_on',
@@ -350,7 +350,7 @@ class Souin extends Module
             'cache_product_pages' => array(
                 'type' => 'switch',
                 'label' => $this->l('Cache Product Pages'),
-                'name' => 'PS_VARNISH_CACHE_OBJECT_PRODUCTS',
+                'name' => 'PS_SOUIN_CACHE_OBJECT_PRODUCTS',
                 'values' => array(
                     array(
                         'id' => 'active_on',
@@ -367,7 +367,7 @@ class Souin extends Module
             'cache_category_pages' => array(
                 'type' => 'switch',
                 'label' => $this->l('Cache Category Pages'),
-                'name' => 'PS_VARNISH_CACHE_OBJECT_CATEGORIES',
+                'name' => 'PS_SOUIN_CACHE_OBJECT_CATEGORIES',
                 'values' => array(
                     array(
                         'id' => 'active_on',
@@ -384,7 +384,7 @@ class Souin extends Module
             'cache_cms_pages' => array(
                 'type' => 'switch',
                 'label' => $this->l('Cache CMS Pages'),
-                'name' => 'PS_VARNISH_CACHE_OBJECT_CMS',
+                'name' => 'PS_SOUIN_CACHE_OBJECT_CMS',
                 'values' => array(
                     array(
                         'id' => 'active_on',
@@ -401,7 +401,7 @@ class Souin extends Module
             'cache_contact_page' => array(
                 'type' => 'switch',
                 'label' => $this->l('Cache Contact Page'),
-                'name' => 'PS_VARNISH_CACHE_OBJECT_CONTACT',
+                'name' => 'PS_SOUIN_CACHE_OBJECT_CONTACT',
                 'values' => array(
                     array(
                         'id' => 'active_on',
@@ -418,7 +418,7 @@ class Souin extends Module
             'cache_stores_page' => array(
                 'type' => 'switch',
                 'label' => $this->l('Cache Stores Page'),
-                'name' => 'PS_VARNISH_CACHE_OBJECT_STORES',
+                'name' => 'PS_SOUIN_CACHE_OBJECT_STORES',
                 'values' => array(
                     array(
                         'id' => 'active_on',
@@ -435,7 +435,7 @@ class Souin extends Module
             'cache_sitemap_page' => array(
                 'type' => 'switch',
                 'label' => $this->l('Cache Sitemap Page'),
-                'name' => 'PS_VARNISH_CACHE_OBJECT_SITEMAP',
+                'name' => 'PS_SOUIN_CACHE_OBJECT_SITEMAP',
                 'values' => array(
                     array(
                         'id' => 'active_on',
@@ -505,13 +505,13 @@ class Souin extends Module
         }
 
         $controllers_cache_map = array(
-            'product' => 'PS_VARNISH_CACHE_OBJECT_PRODUCTS',
-            'cms' => 'PS_VARNISH_CACHE_OBJECT_CMS',
-            'category' => 'PS_VARNISH_CACHE_OBJECT_CATEGORIES',
-            'contact' => 'PS_VARNISH_CACHE_OBJECT_CONTACT',
-            'stores' => 'PS_VARNISH_CACHE_OBJECT_STORES',
-            'sitemap' => 'PS_VARNISH_CACHE_OBJECT_SITEMAP',
-            'index' => 'PS_VARNISH_CACHE_OBJECT_INDEX',
+            'product' => 'PS_SOUIN_CACHE_OBJECT_PRODUCTS',
+            'cms' => 'PS_SOUIN_CACHE_OBJECT_CMS',
+            'category' => 'PS_SOUIN_CACHE_OBJECT_CATEGORIES',
+            'contact' => 'PS_SOUIN_CACHE_OBJECT_CONTACT',
+            'stores' => 'PS_SOUIN_CACHE_OBJECT_STORES',
+            'sitemap' => 'PS_SOUIN_CACHE_OBJECT_SITEMAP',
+            'index' => 'PS_SOUIN_CACHE_OBJECT_INDEX',
         );
 
         if (isset($controllers_cache_map[$controller])) {
