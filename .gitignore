@@ -34,3 +34,4 @@ download/
 upload/
 
 .DS_Store
+/vendor/
